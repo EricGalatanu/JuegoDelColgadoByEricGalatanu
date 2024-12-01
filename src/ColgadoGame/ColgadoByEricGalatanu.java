@@ -65,6 +65,46 @@ public class ColgadoByEricGalatanu {
 				System.out.println("¿Cuántas rondas quieres jugar?");
 				rondas = s.nextInt();
 				
+				while (rondasJugadas < rondas) {
+					System.out.println("Ronda " + (rondasJugadas + 1));
+
+			
+					System.out.println(respJugador1 + ", elige la palabra que " + respJugador2 + " tiene que adivinar:");
+					palabraOriginal = s.next().toLowerCase();
+
+				
+					palabraOcultada = "_ ".repeat(palabraOriginal.length());
+					System.out.println(respJugador2 + " la palabra que tienes que adivinar es: " + palabraOcultada);
+
+					intentosActuales = intentosMax;
+
+					while (intentosActuales > 0 && palabraOcultada.contains("_")) {
+						System.out.println("Intentos: " + intentosActuales);
+						System.out.print(respJugador2 + ", adivina una letra: ");
+						String letra = s.next().toLowerCase();
+
+						if (palabraOriginal.contains(letra)) {
+
+							String nuevaPalabraOcultada = "";
+							for (int i = 0; i < palabraOriginal.length(); i++) {
+								if (palabraOriginal.charAt(i) == letra.charAt(0)) {
+									nuevaPalabraOcultada += letra + " ";
+								} else {
+									nuevaPalabraOcultada += palabraOcultada.charAt(i * 2) + " ";
+								}
+							}
+							palabraOcultada = nuevaPalabraOcultada;
+							System.out.println("Letra correcta");
+							System.out.println();
+						} else {
+							intentosActuales--;
+							System.out.println("Letra incorrecta.");
+							System.out.println();
+						}
+
+						System.out.println("Palabra: " + palabraOcultada);
+					}
+				
 		}
 		
 		if (respJugadores.equalsIgnoreCase("Tres") || respJugadores.equals("3")) {
