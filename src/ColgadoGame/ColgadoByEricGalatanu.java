@@ -105,8 +105,33 @@ public class ColgadoByEricGalatanu {
 						System.out.println("Palabra: " + palabraOcultada);
 					}
 				
-		}
-		
+					// Resultado
+					if (!palabraOcultada.contains("_")) {
+						System.out.println("Felicidades, " + respJugador2 + " has adivinado la palabra: " + palabraOriginal);
+						puntajeJugador2++;
+					} else {
+						System.out.println("Lo siento " + respJugador2 + " no has adivinado la palabra: " + palabraOriginal);
+						puntajeJugador1++;
+					}
+
+					rondasJugadas++;
+					System.out.println();
+				}
+
+				// Puntos
+				System.out.println("Fin del juego. El puntaje final es:");
+				System.out.println(respJugador1 + ": " + puntajeJugador1 + " puntos.");
+				System.out.println(respJugador2 + ": " + puntajeJugador2 + " puntos.");
+
+				if (puntajeJugador1 > puntajeJugador2) {
+					System.out.println("Felicidades, " + respJugador1 + " has ganado");
+				} else if (puntajeJugador2 > puntajeJugador1) {
+					System.out.println("Felicidades, " + respJugador2 + " has ganado");
+				} else {
+					System.out.println("El juego terminó en empate.");
+				}
+			}
+
 		if (respJugadores.equalsIgnoreCase("Tres") || respJugadores.equals("3")) {
 
 			System.out.println("Jugador 1, como te quieres llamr: ");
